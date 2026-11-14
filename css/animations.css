@@ -1,0 +1,92 @@
+/* 1. Анимация кнопок */
+
+.btn.btn-flow {
+  position: relative;
+  overflow: hidden;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transition: none;
+}
+
+.btn-flow > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-flow .btn-cover {
+  position: absolute;
+  inset: 0;
+  padding: inherit;
+  background: #fff;
+  color: var(--accent);
+  pointer-events: none;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.3s ease;
+}
+
+.btn-flow:hover .btn-cover,
+.btn-flow:focus-visible .btn-cover {
+  clip-path: inset(0 0 0 100%);
+  animation: button-wipe 0.3s ease;
+}
+
+@keyframes button-wipe {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+/* 2. Названия товаров */
+
+.product-card h3 {
+  color: var(--ink);
+  transition: color 0.25s ease;
+}
+
+.product-card h3:hover,
+.product-card a:focus-visible h3 {
+  color: var(--accent);
+}
+
+/* 3. Карточки брендов */
+
+.motion-brands .brand-tile {
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.motion-brands .brand-tile:hover,
+.motion-brands .brand-tile:focus-visible {
+  background-color: #f8eff1;
+  box-shadow: 4px 6px 16px rgba(106, 48, 68, 0.12);
+}
+
+/* 4. Поля входа и регистрации */
+
+.auth-page .form-control {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-page .form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(106, 48, 68, 0.12);
+}
+
+/* Настройка для пользователей с ограничением движения */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-flow .btn-cover,
+  .product-card h3,
+  .motion-brands .brand-tile,
+  .auth-page .form-control {
+    transition: none !important;
+    animation: none !important;
+  }
+}
