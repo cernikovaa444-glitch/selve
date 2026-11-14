@@ -7,6 +7,7 @@
     <title>Вход и регистрация — SELVE</title>
     <link rel="stylesheet" href="vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -55,7 +56,10 @@
               </div>
             </div>
             <div class="auth-submit">
-              <button class="btn btn-selve" type="submit">Войти</button>
+              <button class="btn btn-selve btn-flow" type="submit">
+                <span>Войти</span>
+                <span class="btn-cover" aria-hidden="true">Войти</span>
+              </button>
             </div>
           </form>
         </section>
@@ -83,7 +87,12 @@
               </div>
             </div>
             <div class="auth-submit">
-              <button class="btn btn-selve" type="submit">Зарегистрироваться</button>
+              <button class="btn btn-selve btn-flow" type="submit">
+                <span>Зарегистрироваться</span>
+                <span class="btn-cover" aria-hidden="true">
+                  Зарегистрироваться
+                </span>
+              </button>
             </div>
           </form>
         </section>
