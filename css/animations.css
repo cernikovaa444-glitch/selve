@@ -90,3 +90,93 @@
     animation: none !important;
   }
 }
+/* 5. Кружочки категорий на главной */
+
+.home .category img {
+  transition: transform 0.3s ease;
+}
+
+.home .category:hover img,
+.home .category:focus-visible img {
+  transform: scale(1.05);
+  animation: category-grow 0.3s ease;
+}
+
+@keyframes category-grow {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* 6. Прорисовка иконок преимуществ */
+
+.about-page .advantage .icon path,
+.about-page .advantage .icon circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.about-page .advantage:hover .icon path,
+.about-page .advantage:hover .icon circle {
+  animation: advantage-draw 0.65s ease both;
+}
+
+@keyframes advantage-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 7. Перечёркивание старой цены */
+
+.sale-page .old-price {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sale-page .old-price::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.sale-page .product-card:hover .old-price::after,
+.sale-page .product-card:focus-within .old-price::after {
+  animation: price-strike 0.35s ease both;
+}
+
+@keyframes price-strike {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home .category img,
+  .about-page .advantage .icon path,
+  .about-page .advantage .icon circle,
+  .sale-page .old-price::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
